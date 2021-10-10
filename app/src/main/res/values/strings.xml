@@ -2,11 +2,12 @@
     <string name="app_name">Activity Tracker</string>
     <string name="intro_main">Пожалуй лучший\nфитнесс трекер в ДВФУ</string>
     <string name="intro_sub">Созданный студентами\nмагистратуры</string>
-    <string name="btm_reg">Зарегистрироваться</string>
+    <string name="btn_reg">Зарегистрироваться</string>
     <string name="btn_log">Уже есть аккаунт?</string>
-    <string name="btm_con">Продолжить</string>
+    <string name="btn_con">Продолжить</string>
     <string name="registration">Регистрация</string>
-    <string name="button_back_descr">button_back</string>
+    <string name="login">Вход</string>
+    <string name="btn_back_description">button_back</string>
     <string name="login_hint">Логин</string>
     <string name="password_hint">Пароль</string>
     <string name="password2_hint">Повторите пароль</string>

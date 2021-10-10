@@ -13,13 +13,13 @@
         app:layout_constraintGuide_percent="0.75" />
 
     <ImageButton
-        android:id="@+id/btn_back_reg"
+        android:id="@+id/btn_reg_back"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="@android:color/transparent"
-        android:contentDescription="@string/button_back_descr"
+        android:contentDescription="@string/btn_back_description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/button_back" />
@@ -117,10 +117,10 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/btn_continue"
+                android:id="@+id/btn_reg_continue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btm_con" />
+                android:text="@string/btn_con" />
         </LinearLayout>
     </ScrollView>
 
@@ -144,7 +144,7 @@
         android:text="@string/registration"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_back_reg" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_reg_back" />
 
     <TextView
         android:id="@+id/label_agreement"
