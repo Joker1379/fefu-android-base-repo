@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Activity Tracker</string>
     <string name="act">Активность</string>
+    <string name="mine">Моя</string>
+    <string name="users">Пользователей</string>
     <string name="profile">Профиль</string>
     <string name="intro_main">Пожалуй лучший\nфитнесс трекер в ДВФУ</string>
     <string name="intro_sub">Созданный студентами\nмагистратуры</string>

@@ -2,7 +2,6 @@ package ru.fefu.activitytracker
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import ru.fefu.activitytracker.fragments.ActiveFragment
 import ru.fefu.activitytracker.fragments.ProfileFragment
