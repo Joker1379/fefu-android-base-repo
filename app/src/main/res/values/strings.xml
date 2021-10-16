@@ -17,6 +17,8 @@
     <string name="password2_hint">Повторите пароль</string>
     <string name="name_hint">Имя</string>
     <string name="sex_hint">Пол</string>
+    <string name="male">Мужской</string>
+    <string name="female">Женский</string>
     <string name="agreement">
         Нажимая на кнопку, вы соглашаетесь с политикой
         конфиденциальности и обработки персональных данных, а также принимаете
