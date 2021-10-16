@@ -72,7 +72,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_rassword2"
+                android:id="@+id/input_password2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingHorizontal="16dp"
@@ -101,20 +101,33 @@
                     tools:ignore="TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_sex"
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:text="@string/sex_hint"
+                android:textSize="20sp" />
+
+            <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="16dp"
-                android:paddingBottom="16dp">
+                android:paddingHorizontal="16dp" >
 
-                <com.google.android.material.textfield.TextInputEditText
+                <RadioButton
+                    android:id="@+id/reg_btn_male"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/sex_hint"
-                    tools:ignore="TextContrastCheck" />
+                    android:buttonTint="#4B09F3"
+                    android:text="@string/male" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+                <RadioButton
+                    android:id="@+id/reg_btn_female"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/female"
+                    android:buttonTint="#4B09F3" />
+            </RadioGroup>
 
             <Button
                 android:id="@+id/btn_reg_continue"
