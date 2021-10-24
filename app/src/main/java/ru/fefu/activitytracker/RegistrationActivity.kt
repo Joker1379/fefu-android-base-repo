@@ -24,8 +24,7 @@ class RegistrationActivity: AppCompatActivity() {
         val s = SpannableString(getString(R.string.agreement))
 
         back.setOnClickListener {
-            intent = Intent(this, IntroActivity::class.java)
-            startActivity(intent)
+            onBackPressed()
         }
         cont.setOnClickListener {
             intent = Intent(this, MainActivity::class.java)

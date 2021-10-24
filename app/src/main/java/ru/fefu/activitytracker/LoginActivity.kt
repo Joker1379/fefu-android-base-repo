@@ -16,8 +16,7 @@ class LoginActivity: AppCompatActivity() {
         val cont = findViewById<Button>(R.id.btn_log_continue)
 
         back.setOnClickListener {
-            intent = Intent(this, IntroActivity::class.java)
-            startActivity(intent)
+            onBackPressed()
         }
         cont.setOnClickListener {
             intent = Intent(this, MainActivity::class.java)
