@@ -10,30 +10,25 @@ import ru.fefu.activitytracker.data.ActiveData
 
 class ActiveRCAdapter(private val actives: List<ActiveData>):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder).
-     */
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val distance = view.findViewById<TextView>(R.id.label_km)
-        val time = view.findViewById<TextView>(R.id.label_time)
-        val category = view.findViewById<TextView>(R.id.label_category)
-        val date = view.findViewById<TextView>(R.id.label_when)
+        val distance: TextView = view.findViewById(R.id.label_km)
+        val time: TextView = view.findViewById(R.id.label_time)
+        val category: TextView = view.findViewById(R.id.label_category)
+        val date: TextView = view.findViewById(R.id.label_when)
         /*init {
             // Define click listener for the ViewHolder's View.
         }*/
     }
     class ViewHolder2(view: View) : RecyclerView.ViewHolder(view) {
-        val date = view.findViewById<TextView>(R.id.active_date)
+        val date: TextView = view.findViewById(R.id.active_date)
     }
 
     override fun getItemViewType(position: Int): Int =
         if (actives[position] is ActiveData.ActiveDate) 0
         else 1
 
-    // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        // Create a new view, which defines the UI of the list item
         if (viewType == 0){
             val view = LayoutInflater.from(viewGroup.context)
                 .inflate(R.layout.rv_date, viewGroup, false)
@@ -45,7 +40,6 @@ class ActiveRCAdapter(private val actives: List<ActiveData>):
         }
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == 0) {
             val holder = viewHolder as ViewHolder2

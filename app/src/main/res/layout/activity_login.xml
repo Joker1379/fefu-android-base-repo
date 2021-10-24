@@ -15,7 +15,7 @@
         android:contentDescription="@string/btn_back_description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/button_back" />
+        app:srcCompat="@drawable/btn_back" />
 
     <TextView
         android:id="@+id/login_label"

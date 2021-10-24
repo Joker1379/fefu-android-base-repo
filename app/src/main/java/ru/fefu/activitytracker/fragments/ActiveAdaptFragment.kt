@@ -17,9 +17,9 @@ const val ARG_OBJECT = "object"
 
 class ActiveAdaptFragment : Fragment() {
     private val activesDataset = ActiveDataset()
-    //private val activesUsersDataset = ActiveUsersDataset()
+    private val activesUsersDataset = ActiveUsersDataset()
     private val activeRCAdapter = ActiveRCAdapter(activesDataset.getActives())
-    //private val activeUsersRCAdapter = ActiveUsersRCAdapter(activesUsersDataset.getActives())
+    private val activeUsersRCAdapter = ActiveUsersRCAdapter(activesUsersDataset.getActives())
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,11 +29,14 @@ class ActiveAdaptFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         arguments?.takeIf { it.containsKey(ARG_OBJECT) }?.apply {
-            /*val textView = view.findViewById<TextView>(R.id.active_label)
-            textView.text = "Page "+getInt(ARG_OBJECT).toString()*/
             val recyclerView = view.findViewById<RecyclerView>(R.id.active_list)
-            recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
-            recyclerView.adapter = activeRCAdapter
+            recyclerView.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            if (getInt(ARG_OBJECT) == 1) {
+                recyclerView.adapter = activeRCAdapter
+            } else {
+                recyclerView.adapter = activeUsersRCAdapter
+            }
         }
     }
 }

@@ -1,51 +1,57 @@
 package ru.fefu.activitytracker.data
 
 class ActiveUsersDataset {
-    private val defaultUsersActives = listOf(
-        ActiveUsersData(
+    private val defaultActives = listOf(
+        ActiveUsersData.ActiveDate(
             0,
-            "50 км",
-            "1 час",
-            "Сёрфинг",
-            "5 часов назад",
-            "@lena",
+            "Сегодня"
         ),
-        ActiveUsersData(
+        ActiveUsersData.ActiveCard(
             1,
-            "10 км",
+            "25 км",
             "30 минут",
-            "Велосипед",
-            "17 часов назад",
-            "@alex",
+            "Сёрфинг",
+            "7 часов назад",
+            "@lena"
         ),
-        ActiveUsersData(
+        ActiveUsersData.ActiveCard(
             2,
+            "13 км",
+            "21 минута",
+            "Велосипед",
+            "15 часов назад",
+            "@alex"
+        ),
+        ActiveUsersData.ActiveCard(
+            3,
             "35 км",
             "1 час 11 минут",
             "Сёрфинг",
-            "21.10.2021",
-            "@viktor",
+            "18 часов назад",
+            "@jane"
         ),
-        ActiveUsersData(
-            3,
+        ActiveUsersData.ActiveDate(
+            4,
+            "25 октября 2021"
+        ),
+        ActiveUsersData.ActiveCard(
+            5,
             "50 км",
             "45 минут",
             "Сёрфинг",
-            "20.10.2021",
-            "@jane",
+            "25.10.2021",
+            "@john"
         ),
-        ActiveUsersData(
-            4,
+        ActiveUsersData.ActiveCard(
+            6,
             "153 км",
             "3 часа",
             "Велосипед",
-            "18.10.2021",
-            "@john",
+            "25.10.2021",
+            "@viktor"
         ),
     )
 
-    private var lastId = defaultUsersActives.maxOf { it.id }
-
-    fun getActives(): List<ActiveUsersData> = defaultUsersActives
+    fun getActives(): List<ActiveUsersData> = defaultActives
 
 }

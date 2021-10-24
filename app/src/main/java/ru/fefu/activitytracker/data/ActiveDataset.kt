@@ -22,7 +22,7 @@ class ActiveDataset {
         ),
         ActiveData.ActiveDate(
             3,
-            "21.10.2021"
+            "21 октября 2021"
         ),
         ActiveData.ActiveCard(
             4,
