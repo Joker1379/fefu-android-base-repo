@@ -29,6 +29,10 @@
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".DetailsActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
