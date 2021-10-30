@@ -1,7 +1,7 @@
 package ru.fefu.activitytracker
 
 import android.os.Bundle
-import android.widget.ImageButton
+import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 
 class DetailsActivity: AppCompatActivity() {
@@ -10,9 +10,9 @@ class DetailsActivity: AppCompatActivity() {
 
         setContentView(R.layout.activity_details)
 
-        val back = findViewById<ImageButton>(R.id.details_btn_back)
+        val toolbar = findViewById<Toolbar>(R.id.details_toolbar)
 
-        back.setOnClickListener {
+        toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
     }
