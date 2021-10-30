@@ -27,4 +27,11 @@
     <string name="btn_back_description">Назад</string>
     <string name="btn_del_description">Удалить</string>
     <string name="btn_share_description">Поделиться</string>
+    <string name="save">Сохранить</string>
+    <string name="change_password">Изменить пароль</string>
+    <string name="exit">Выйти</string>
+    <string name="password_old">Старый пароль</string>
+    <string name="password_new">Новый пароль</string>
+    <string name="password_repeat">Повторите пароль</string>
+    <string name="confirm">Принять</string>
 </resources>
