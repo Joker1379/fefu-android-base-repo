@@ -12,10 +12,11 @@ class MainActivity: AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager.beginTransaction().apply {
-            add(R.id.main_cont_frag, ActiveFragment(), "act")
-            addToBackStack("add_active")
-            commit()
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().apply {
+                add(R.id.main_cont_frag, ActiveFragment(), "act")
+                commit()
+            }
         }
 
         val navbar = findViewById<BottomNavigationView>(R.id.main_nav)
@@ -40,7 +41,6 @@ class MainActivity: AppCompatActivity() {
                 } else {
                     supportFragmentManager.beginTransaction().apply {
                         add(R.id.main_cont_frag, ProfileFragment(), "pro")
-                        addToBackStack("add_profile")
                         commit()
                     }
                 }
