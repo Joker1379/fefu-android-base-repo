@@ -27,6 +27,9 @@
     <string name="btn_back_description">Назад</string>
     <string name="btn_del_description">Удалить</string>
     <string name="btn_share_description">Поделиться</string>
+    <string name="btn_new_active">Начать новую активность</string>
+    <string name="btn_pause_description">Пауза</string>
+    <string name="btn_finish_description">Финиш</string>
     <string name="save">Сохранить</string>
     <string name="change_password">Изменить пароль</string>
     <string name="exit">Выйти</string>
@@ -34,4 +37,6 @@
     <string name="password_new">Новый пароль</string>
     <string name="password_repeat">Повторите пароль</string>
     <string name="confirm">Принять</string>
+    <string name="begin_question">Начнём?</string>
+    <string name="begin">Начать</string>
 </resources>
