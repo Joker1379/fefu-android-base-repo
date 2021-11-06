@@ -1,5 +1,6 @@
 package ru.fefu.activitytracker
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,15 +10,14 @@ import ru.fefu.activitytracker.data.CatData
 
 class CatRCAdapter(private val cats: List<CatData>):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val category: TextView = view.findViewById(R.id.label_category)
-        /*init {
+        init {
             view.setOnClickListener {
-                val intent = Intent(view.context, DetailsActivity::class.java)
-                view.context.startActivity(intent)
+                val sharedPrefs = view.context.getSharedPreferences("SharedPrefs", Context.MODE_PRIVATE)
+                sharedPrefs.edit().putString("ActCat", category.text.toString()).apply()
             }
-        }*/
+        }
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

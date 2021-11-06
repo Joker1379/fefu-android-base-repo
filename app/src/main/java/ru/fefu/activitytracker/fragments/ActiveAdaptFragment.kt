@@ -9,17 +9,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.fefu.activitytracker.ActiveRCAdapter
 import ru.fefu.activitytracker.ActiveUsersRCAdapter
+import ru.fefu.activitytracker.App
 import ru.fefu.activitytracker.R
-import ru.fefu.activitytracker.data.ActiveDataset
 import ru.fefu.activitytracker.data.ActiveUsersDataset
 
 const val ARG_OBJECT = "object"
 
 class ActiveAdaptFragment : Fragment() {
-    private val activesDataset = ActiveDataset()
     private val activesUsersDataset = ActiveUsersDataset()
-    private val activeRCAdapter = ActiveRCAdapter(activesDataset.getActives())
     private val activeUsersRCAdapter = ActiveUsersRCAdapter(activesUsersDataset.getActives())
+
+    private val activeRCAdapter by lazy {
+        ActiveRCAdapter { App.INSTANCE.db.activeDao().delete(it) }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +36,9 @@ class ActiveAdaptFragment : Fragment() {
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             if (getInt(ARG_OBJECT) == 1) {
                 recyclerView.adapter = activeRCAdapter
+                App.INSTANCE.db.activeDao().getAll().observe(viewLifecycleOwner) {
+                    activeRCAdapter.submitList(it)
+                }
             } else {
                 recyclerView.adapter = activeUsersRCAdapter
             }

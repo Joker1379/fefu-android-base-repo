@@ -1,64 +1,53 @@
 package ru.fefu.activitytracker
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ru.fefu.activitytracker.data.ActiveData
+import ru.fefu.activitytracker.data.Active
 
+class ActiveRCAdapter(private val clickListener: (Active) -> Unit) :
+    ListAdapter<Active, ActiveRCAdapter.ActiveHolder>(ActiveDiffUtilCallback()) {
 
-class ActiveRCAdapter(private val actives: List<ActiveData>):
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActiveHolder {
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.rv_active, parent, false)
+        return ActiveHolder(view)
+    }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val distance: TextView = view.findViewById(R.id.label_km)
-        val time: TextView = view.findViewById(R.id.label_time)
-        val category: TextView = view.findViewById(R.id.label_category)
-        val date: TextView = view.findViewById(R.id.label_when)
-        init {
+    override fun onBindViewHolder(holder: ActiveHolder, position: Int) =
+        holder.bind(currentList[position])
+
+    inner class ActiveHolder(view: View) : RecyclerView.ViewHolder(view) {
+        private val cat: TextView = view.findViewById(R.id.label_category)
+        private val km: TextView = view.findViewById(R.id.label_km)
+        private val time: TextView = view.findViewById(R.id.label_time)
+        private val date: TextView = view.findViewById(R.id.label_when)
+
+        /*init {
             view.setOnClickListener {
-                val intent = Intent(view.context, DetailsActivity::class.java)
-                view.context.startActivity(intent)
+                val position = adapterPosition
+                currentList.getOrNull(position)?.let { clickListener.invoke(it) }
             }
-        }
-    }
-    class ViewHolder2(view: View) : RecyclerView.ViewHolder(view) {
-        val date: TextView = view.findViewById(R.id.active_date)
-    }
+        }*/
 
-    override fun getItemViewType(position: Int): Int =
-        if (actives[position] is ActiveData.ActiveDate) 0
-        else 1
-
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == 0){
-            val view = LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.rv_date, viewGroup, false)
-            return ViewHolder2(view)
-        } else {
-            val view = LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.rv_active, viewGroup, false)
-            return ViewHolder(view)
+        fun bind(active: Active) {
+            cat.text = active.cat
+            km.text = active.map
+            time.text = active.start
+            date.text = active.end
         }
     }
 
-    override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
-        if (getItemViewType(position) == 0) {
-            val holder = viewHolder as ViewHolder2
-            val data: ActiveData.ActiveDate = actives[position] as ActiveData.ActiveDate
-            holder.date.text = data.date
-        } else {
-            val holder = viewHolder as ViewHolder
-            val data: ActiveData.ActiveCard = actives[position] as ActiveData.ActiveCard
-            holder.distance.text = data.distance
-            holder.time.text = data.time
-            holder.category.text = data.category
-            holder.date.text = data.date
-        }
-    }
+}
 
-    override fun getItemCount() = actives.size
+private class ActiveDiffUtilCallback : DiffUtil.ItemCallback<Active>() {
+    override fun areItemsTheSame(oldItem: Active, newItem: Active): Boolean =
+        oldItem.id == newItem.id
 
+    override fun areContentsTheSame(oldItem: Active, newItem: Active): Boolean =
+        oldItem == newItem
 }

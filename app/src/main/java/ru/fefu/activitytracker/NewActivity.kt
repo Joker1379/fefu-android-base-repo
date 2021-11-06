@@ -1,11 +1,13 @@
 package ru.fefu.activitytracker
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ru.fefu.activitytracker.data.Active
 import ru.fefu.activitytracker.data.CatDataset
 
 class NewActivity: AppCompatActivity(R.layout.activity_new) {
@@ -22,8 +24,21 @@ class NewActivity: AppCompatActivity(R.layout.activity_new) {
 
         val start = findViewById<Button>(R.id.new_btn_begin)
         start.setOnClickListener {
-            val intent = Intent(this, StartedActivity::class.java)
-            startActivity(intent)
+            val sharedPrefs = getSharedPreferences("SharedPrefs", Context.MODE_PRIVATE)
+            val value = sharedPrefs.getString("ActCat", null)
+            if (value != null) {
+                App.INSTANCE.db.activeDao().insert(
+                    Active(
+                        0,
+                        value,
+                        "Start",
+                        "Finish",
+                        "Map"
+                    )
+                )
+                val intent = Intent(this, StartedActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }
