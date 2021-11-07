@@ -1,5 +1,6 @@
 package ru.fefu.activitytracker
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,22 +24,29 @@ class ActiveRCAdapter(private val clickListener: (Active) -> Unit) :
 
     inner class ActiveHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val cat: TextView = view.findViewById(R.id.label_category)
-        private val km: TextView = view.findViewById(R.id.label_km)
+        private val dist: TextView = view.findViewById(R.id.label_dist)
         private val time: TextView = view.findViewById(R.id.label_time)
         private val date: TextView = view.findViewById(R.id.label_when)
 
-        /*init {
+        init {
             view.setOnClickListener {
+                // val position = adapterPosition
+                // currentList.getOrNull(position)?.let { clickListener.invoke(it) }
                 val position = adapterPosition
-                currentList.getOrNull(position)?.let { clickListener.invoke(it) }
+                val id = currentList.getOrNull(position)?.id
+                val intent = Intent(view.context, DetailsActivity::class.java)
+                if (id != null) {
+                    intent.putExtra("id", id)
+                }
+                view.context.startActivity(intent)
             }
-        }*/
+        }
 
         fun bind(active: Active) {
             cat.text = active.cat
-            km.text = active.map
-            time.text = active.start
-            date.text = active.end
+            dist.text = active.dist
+            time.text = active.start.toString()
+            date.text = active.end.toString()
         }
     }
 

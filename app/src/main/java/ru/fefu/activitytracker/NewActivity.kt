@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.fefu.activitytracker.data.Active
 import ru.fefu.activitytracker.data.CatDataset
+import java.sql.Date
 
 class NewActivity: AppCompatActivity(R.layout.activity_new) {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,9 +32,10 @@ class NewActivity: AppCompatActivity(R.layout.activity_new) {
                     Active(
                         0,
                         value,
-                        "Start",
-                        "Finish",
-                        "Map"
+                        "150 км",
+                        Date(1000),
+                        Date(100000),
+                        null
                     )
                 )
                 val intent = Intent(this, StartedActivity::class.java)
