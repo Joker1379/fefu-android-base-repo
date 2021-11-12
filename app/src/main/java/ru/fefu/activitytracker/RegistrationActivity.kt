@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.text.Spanned
 import android.text.style.ClickableSpan
 import android.view.View
+import android.widget.Button
 
 
 class RegistrationActivity: AppCompatActivity() {
@@ -18,11 +19,16 @@ class RegistrationActivity: AppCompatActivity() {
         setContentView(R.layout.activity_registration)
 
         val back = findViewById<ImageButton>(R.id.btn_reg_back)
+        val cont = findViewById<Button>(R.id.btn_reg_continue)
         val agreement = findViewById<TextView>(R.id.label_agreement)
         val s = SpannableString(getString(R.string.agreement))
 
         back.setOnClickListener {
             onBackPressed()
+        }
+        cont.setOnClickListener {
+            intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
         val span1: ClickableSpan = object : ClickableSpan() {
