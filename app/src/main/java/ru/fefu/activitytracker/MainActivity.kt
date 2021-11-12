@@ -24,9 +24,13 @@ class MainActivity: AppCompatActivity() {
         navbar.setOnItemSelectedListener {
             val profile = supportFragmentManager.findFragmentByTag("pro")
             val activity = supportFragmentManager.findFragmentByTag("act")
+            val redPass = supportFragmentManager.findFragmentByTag("red_password")
             if (it.itemId == R.id.action_act) {
                 if (profile != null) {
                     supportFragmentManager.beginTransaction().hide(profile).commit()
+                }
+                if (redPass != null) {
+                    supportFragmentManager.beginTransaction().remove(redPass).commit()
                 }
                 if (activity != null) {
                     supportFragmentManager.beginTransaction().show(activity).commit()
@@ -35,6 +39,9 @@ class MainActivity: AppCompatActivity() {
             else if (it.itemId == R.id.action_profile) {
                 if (activity != null) {
                     supportFragmentManager.beginTransaction().hide(activity).commit()
+                }
+                if (redPass != null) {
+                    supportFragmentManager.beginTransaction().remove(redPass).commit()
                 }
                 if (profile != null) {
                     supportFragmentManager.beginTransaction().show(profile).commit()

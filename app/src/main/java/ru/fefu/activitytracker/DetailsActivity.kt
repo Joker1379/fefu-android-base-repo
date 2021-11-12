@@ -11,9 +11,21 @@ class DetailsActivity: AppCompatActivity() {
         setContentView(R.layout.activity_details)
 
         val toolbar = findViewById<Toolbar>(R.id.details_toolbar)
+        val id = intent.extras?.getInt("id")
+        val active = id?.let { App.INSTANCE.db.activeDao().getById(it) }
 
         toolbar.setNavigationOnClickListener {
             onBackPressed()
+        }
+
+        toolbar.setOnMenuItemClickListener {
+            if (it.itemId == R.id.action_delete) {
+                if (active != null) {
+                    App.INSTANCE.db.activeDao().delete(active)
+                }
+                onBackPressed()
+            }
+            true
         }
     }
 }

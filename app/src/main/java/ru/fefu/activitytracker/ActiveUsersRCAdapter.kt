@@ -11,7 +11,7 @@ class ActiveUsersRCAdapter(private val actives: List<ActiveUsersData>):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val distance: TextView = view.findViewById(R.id.label_km)
+        val distance: TextView = view.findViewById(R.id.label_dist)
         val time: TextView = view.findViewById(R.id.label_time)
         val category: TextView = view.findViewById(R.id.label_category)
         val date: TextView = view.findViewById(R.id.label_when)

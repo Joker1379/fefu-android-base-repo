@@ -1,13 +1,16 @@
 package ru.fefu.activitytracker.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import ru.fefu.activitytracker.NewActivity
 import ru.fefu.activitytracker.R
 
 class ActiveFragment : Fragment() {
@@ -32,5 +35,11 @@ class ActiveFragment : Fragment() {
                 1 -> tab.text = "Пользователей"
             }
         }.attach()
+
+        val newActive = view.findViewById<ImageButton>(R.id.active_btn_add)
+        newActive.setOnClickListener {
+            val intent = Intent(context, NewActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
