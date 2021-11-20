@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.fefu.activitytracker.data.Active
+import ru.fefu.activitytracker.data.ActivityCat
 import ru.fefu.activitytracker.data.CatDataset
 import java.sql.Date
 
@@ -31,8 +32,7 @@ class NewActivity: AppCompatActivity(R.layout.activity_new) {
                 App.INSTANCE.db.activeDao().insert(
                     Active(
                         0,
-                        value,
-                        "150 км",
+                        ActivityCat.fromString(value)!!,
                         Date(1000),
                         Date(100000),
                         null

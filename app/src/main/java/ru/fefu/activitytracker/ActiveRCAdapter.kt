@@ -43,10 +43,10 @@ class ActiveRCAdapter(private val clickListener: (Active) -> Unit) :
         }
 
         fun bind(active: Active) {
-            cat.text = active.cat
-            dist.text = active.dist
-            time.text = active.start.toString()
-            date.text = active.end.toString()
+            cat.text = active.cat.text
+            dist.text = "150 км"
+            time.text = "1 час 21 минута"
+            date.text = active.start.toString()
         }
     }
 
