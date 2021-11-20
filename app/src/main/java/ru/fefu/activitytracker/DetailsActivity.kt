@@ -14,6 +14,8 @@ class DetailsActivity: AppCompatActivity() {
         val id = intent.extras?.getInt("id")
         val active = id?.let { App.INSTANCE.db.activeDao().getById(it) }
 
+        toolbar.title = active?.cat?.text
+
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
